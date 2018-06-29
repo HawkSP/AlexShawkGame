@@ -64,6 +64,8 @@ while gameActive == "yes":
         print("Your Alex Shaw is worth" ,"£",AlexShaw)
         if AlexShaw <= 100:
             buyerNum= random.randint(0,300)
+        elif AlexShaw > 100:
+            buyerNum = random.randint(0,500)
         elif AlexShaw >= 200:
             buyerNum= random.randint(0,600)
         elif AlexShaw >= 300:
@@ -99,9 +101,9 @@ while gameActive == "yes":
             time.sleep(5)    
         buy = buy.lower()
         if SpellCheck == 1:
-            if "y" in buy:
+            if "y" in buy or "Y" in buy:
                 buy = "yes"
-            elif "n" in buy:
+            elif "n" in buy or "N" in buy:
                 buy = "no"
             else:
                 buy = "An ERROR 02 Has Occured"
@@ -116,9 +118,9 @@ while gameActive == "yes":
                 print("You found someones lost ", MoneyMaker, "on the floor and you picked it up")
                 sell = str(input("Would you like to sell the "+ MoneyMaker + " (Yes/No): "))
                 if SpellCheck == 1:
-                    if "y" in sell:
+                    if "y" in sell or "Y" in sell:
                         sell = "yes"
-                    elif "n" in sell:
+                    elif "n" in sell or "N" in sell:
                         sell = "no"
                     else:
                         sell = "An ERROR 03 Has Occured"
@@ -129,7 +131,8 @@ while gameActive == "yes":
                     if chanceWorth  < 50:
                         recivedMoney = 200
 
-            print("Your new balance is now", "£", recivedMoney+balance+buyerNum-AlexShaw)
+            print("Your new balance is now", "£",recivedMoney+balance+buyerNum)
+            balance = recivedMoney+balance+buyerNum
             recivedMoney = 0
             gameActive = str(input("Would you like to keep buying?(Yes/No): "))
 #Speed 4
@@ -144,13 +147,13 @@ while gameActive == "yes":
             elif speed == 5:
                 time.sleep(5)   
             if SpellCheck == 1:
-                if "y" in gameActive:
+                if "y" in gameActive or "Y" in gameActive:
                     gameActive = "yes"
-                elif "n" in gameActive:
+                elif "n" in gameActive or "N" in gameActive:
                     gameActive = "no"
                 else:
                     buy = "An ERROR 03 Has Occured"
-            balance = balance+buyerNum-AlexShaw
+            balance = balance+buyerNum
             gameActive = gameActive.lower()
             supplyAlex = supplyAlex-1
             if balance >= 5000:
@@ -178,9 +181,9 @@ while gameActive == "yes":
             elif speed == 5:
                 time.sleep(5)   
             if SpellCheck == 1:
-                if "y" in gameActive:
+                if "y" in gameActive or "Y" in gameActive:
                     gameActive = "yes"
-                elif "n" in gameActive:
+                elif "n" in gameActive or "N" in gameActive:
                     gameActive = "no"
                 else:
                     buy = "An ERROR 03 Has Occured"
